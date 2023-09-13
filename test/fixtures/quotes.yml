@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quote_text: MyText
+  pub_yr: 2023-09-12 17:26:14
+  owner_comment: MyText
+  user: one
+  philosopher: one
+
+two:
+  quote_text: MyText
+  pub_yr: 2023-09-12 17:26:14
+  owner_comment: MyText
+  user: two
+  philosopher: two

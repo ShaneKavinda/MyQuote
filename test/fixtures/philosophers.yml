@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phil_fname: MyString
+  phil_lname: MyString
+  phil_dob: 2023-09-12 17:12:33
+  phil_deathyr: 2023-09-12 17:12:33
+  phil_bio: MyText
+
+two:
+  phil_fname: MyString
+  phil_lname: MyString
+  phil_dob: 2023-09-12 17:12:33
+  phil_deathyr: 2023-09-12 17:12:33
+  phil_bio: MyText
