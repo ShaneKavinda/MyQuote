@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-    has_many :quote_category, dependent: :destroy
-    has_many :quote, through: :quote_category
+    has_many :quote_categories, dependent: :destroy
+    has_many :quotes, through: :quote_categories
 end
