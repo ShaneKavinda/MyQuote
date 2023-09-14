@@ -22,6 +22,11 @@
   </div>
 
   <div>
+    <%= form.label :is_public, style: "display: block" %>
+    <%= form.check_box :is_public %>
+  </div>
+
+  <div>
     <%= form.label :owner_comment, style: "display: block" %>
     <%= form.text_area :owner_comment %>
   </div>

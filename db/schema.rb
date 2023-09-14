@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_12_183337) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_14_031113) do
   create_table "categories", force: :cascade do |t|
     t.string "category_name", null: false
     t.datetime "created_at", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_12_183337) do
   create_table "quotes", force: :cascade do |t|
     t.text "quote_text", null: false
     t.datetime "pub_yr"
+    t.boolean "is_public"
     t.text "owner_comment"
     t.integer "user_id", null: false
     t.integer "philosopher_id", null: false

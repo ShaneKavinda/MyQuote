@@ -17,7 +17,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create quote" do
     assert_difference("Quote.count") do
-      post quotes_url, params: { quote: { owner_comment: @quote.owner_comment, philosopher_id: @quote.philosopher_id, pub_yr: @quote.pub_yr, quote_text: @quote.quote_text, user_id: @quote.user_id } }
+      post quotes_url, params: { quote: { is_public: @quote.is_public, owner_comment: @quote.owner_comment, philosopher_id: @quote.philosopher_id, pub_yr: @quote.pub_yr, quote_text: @quote.quote_text, user_id: @quote.user_id } }
     end
 
     assert_redirected_to quote_url(Quote.last)
@@ -34,7 +34,7 @@ class QuotesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update quote" do
-    patch quote_url(@quote), params: { quote: { owner_comment: @quote.owner_comment, philosopher_id: @quote.philosopher_id, pub_yr: @quote.pub_yr, quote_text: @quote.quote_text, user_id: @quote.user_id } }
+    patch quote_url(@quote), params: { quote: { is_public: @quote.is_public, owner_comment: @quote.owner_comment, philosopher_id: @quote.philosopher_id, pub_yr: @quote.pub_yr, quote_text: @quote.quote_text, user_id: @quote.user_id } }
     assert_redirected_to quote_url(@quote)
   end
 

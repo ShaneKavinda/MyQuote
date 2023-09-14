@@ -14,6 +14,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quotes_url
     click_on "New quote"
 
+    check "Is public" if @quote.is_public
     fill_in "Owner comment", with: @quote.owner_comment
     fill_in "Philosopher", with: @quote.philosopher_id
     fill_in "Pub yr", with: @quote.pub_yr
@@ -29,6 +30,7 @@ class QuotesTest < ApplicationSystemTestCase
     visit quote_url(@quote)
     click_on "Edit this quote", match: :first
 
+    check "Is public" if @quote.is_public
     fill_in "Owner comment", with: @quote.owner_comment
     fill_in "Philosopher", with: @quote.philosopher_id
     fill_in "Pub yr", with: @quote.pub_yr

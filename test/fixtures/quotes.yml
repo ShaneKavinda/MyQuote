@@ -2,14 +2,16 @@
 
 one:
   quote_text: MyText
-  pub_yr: 2023-09-12 17:26:14
+  pub_yr: 2023-09-14 11:11:13
+  is_public: false
   owner_comment: MyText
   user: one
   philosopher: one
 
 two:
   quote_text: MyText
-  pub_yr: 2023-09-12 17:26:14
+  pub_yr: 2023-09-14 11:11:13
+  is_public: false
   owner_comment: MyText
   user: two
   philosopher: two

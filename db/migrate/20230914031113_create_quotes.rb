@@ -3,6 +3,7 @@ class CreateQuotes < ActiveRecord::Migration[7.0]
     create_table :quotes do |t|
       t.text :quote_text, null:false
       t.datetime :pub_yr
+      t.boolean :is_public, defualt: true
       t.text :owner_comment
       t.references :user, null: false, foreign_key: true
       t.references :philosopher, null: false, foreign_key: true
