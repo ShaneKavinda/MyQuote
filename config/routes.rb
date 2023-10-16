@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # get 'about/index'
+  # get 'home/index'
   resources :categories
   resources :quotes
   resources :philosophers
@@ -6,5 +8,6 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # root "articles#index"
+  root "home#index"
+  get '/about', to: 'about#index'
 end
