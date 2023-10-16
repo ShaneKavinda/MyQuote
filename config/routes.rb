@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #get 'search/index'
   # get 'about/index'
   # get 'home/index'
   resources :categories
@@ -10,4 +11,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "home#index"
   get '/about', to: 'about#index'
+  get 'search', to: 'search#index'
 end
