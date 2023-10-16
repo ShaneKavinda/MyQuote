@@ -1,2 +1,14 @@
 <h1>Welcome to MyQuote</h1>
 <p>A place to post your favourite quotes!</p>
+
+<h3>Most recently Added Quotes</h3>
+<hr />
+
+<% @quotes.each do |quote|%>
+    <div class="card bg-body-tertiary" style="margin-bottom:10px">
+    <div class="card-body">
+        <h4 class="card-title"><%= quote.quote_text %></h4>
+        [<a href="/quotes/<%= quote.id %>">Read full Quote</a>]</p>
+        </div>
+    </div>
+<% end %>
