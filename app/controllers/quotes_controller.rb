@@ -1,9 +1,10 @@
 class QuotesController < ApplicationController
   before_action :set_quote, only: %i[ show edit update destroy ]
+  before_action :require_login, except: [:index, :show]
 
   # GET /quotes or /quotes.json
   def index
-    @quotes = Quote.all
+    @quotes = current_user.quotes
   end
 
   # GET /quotes/1 or /quotes/1.json
@@ -13,16 +14,28 @@ class QuotesController < ApplicationController
   # GET /quotes/new
   def new
     @quote = Quote.new
+    @quote.quote_categories.build 
   end
 
   # GET /quotes/1/edit
   def edit
   end
 
-  # POST /quotes or /quotes.json
   def create
-    @quote = Quote.new(quote_params)
-
+    @philosopher = Philosopher.new(philosopher_params)
+    @quote = @philosopher.quotes.build(user_id: current_user.id)
+    
+  
+    # Check if a new category is being created
+    if params.dig(:quote, :category_id) == 'new'
+      new_category_name = params.dig(:quote, :new_category_name)
+  
+      if new_category_name.present?
+        category = Category.create(category_name: new_category_name)
+        @quote.category_id = category.id
+      end
+    end
+  
     respond_to do |format|
       if @quote.save
         format.html { redirect_to quote_url(@quote), notice: "Quote was successfully created." }
@@ -33,6 +46,7 @@ class QuotesController < ApplicationController
       end
     end
   end
+  
 
   # PATCH/PUT /quotes/1 or /quotes/1.json
   def update
@@ -65,6 +79,14 @@ class QuotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def quote_params
-      params.require(:quote).permit(:quote_text, :pub_yr, :is_public, :owner_comment, :user_id, :philosopher_id)
+      #params.require(:quote).permit(:quote_text, :pub_yr, :is_public, :owner_comment, :user_id, :philosopher_id)
+      #params.require(:quote).permit(:quote_text, :pub_yr, :is_public, :owner_comment, :user_id, quote_categories_attributes: [:id, :category_id])
+      params.require(:quote).permit(:quote_text, :pub_yr, :is_public, :owner_comment, :user_id, 
+      :quote_categories_attributes , :phil_id)
+
+    end
+
+    def philosopher_params
+      params.require(:quote).permit(:phil_fname, :phil_lname, :phil_dob, :phil_deathyr, :phil_bio)
     end
 end
